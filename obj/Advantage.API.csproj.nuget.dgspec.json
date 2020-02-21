@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\work\\VisualStudio\\Advantage.API\\Advantage.API.csproj": {}
+    "D:\\zPersonal\\Advantage.API\\Advantage.API.csproj": {}
   },
   "projects": {
-    "D:\\work\\VisualStudio\\Advantage.API\\Advantage.API.csproj": {
+    "D:\\zPersonal\\Advantage.API\\Advantage.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\work\\VisualStudio\\Advantage.API\\Advantage.API.csproj",
+        "projectUniqueName": "D:\\zPersonal\\Advantage.API\\Advantage.API.csproj",
         "projectName": "Advantage.API",
-        "projectPath": "D:\\work\\VisualStudio\\Advantage.API\\Advantage.API.csproj",
-        "packagesPath": "C:\\Users\\Gabriel\\.nuget\\packages\\",
-        "outputPath": "D:\\work\\VisualStudio\\Advantage.API\\obj\\",
+        "projectPath": "D:\\zPersonal\\Advantage.API\\Advantage.API.csproj",
+        "packagesPath": "C:\\Users\\GNECOARA\\.nuget\\packages\\",
+        "outputPath": "D:\\zPersonal\\Advantage.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Gabriel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\GNECOARA\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,6 +25,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "http://172.17.120.98:8080/nuget": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
