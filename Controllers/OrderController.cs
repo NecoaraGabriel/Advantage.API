@@ -66,17 +66,34 @@ namespace Advantage.API.Controllers
 
             var totalPages = Math.Ceiling((double)data.Count() / pageSize);
 
-            if(totalPages > 1 && pageIndex <= totalPages )
+            if(totalPages > 1 && pageIndex <= totalPages && pageIndex > 0)
             {
                 var response = new
                 {
                     Page = page,
-                    TotalCount = totalPages
+                    TotalPages = totalPages
                 };
                 return Ok(response);
             }
 
             return BadRequest("Index out of range");
+        }
+
+        [HttpGet("ByCustomer")]
+        public IActionResult ByCustomer()
+        {
+            var orders = _contex.Orders.Include(o => o.Customer).ToList();
+
+            var groupedResults = orders.GroupBy(x => x.Customer.Id)
+                .ToList()
+                .Select(grep => new {
+                    CustomerId = grep.Key,
+                    Customer = _contex.Customers.Find(grep.Key),
+                    Total = grep.Sum(x => x.Amount)
+                }).OrderByDescending(res => res.Total)
+                .ToList();
+
+            return Ok(groupedResults);
         }
     }
 }
