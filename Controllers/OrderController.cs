@@ -55,11 +55,13 @@ namespace Advantage.API.Controllers
             return BadRequest("Body is not properly set.");
         }
 
-        [HttpGet("GetPage")]
-        public IActionResult GetPage(Pagination pagination)
+        //HttpGet("GetPage")]
+        [HttpGet("{pageIndex:int}/{pageSize:int}")]
+        //public IActionResult GetPage(Pagination pagination)
+        public IActionResult GetPage(int pageIndex, int pageSize)
         {
-            int pageIndex = pagination.IndexPage;
-            int pageSize = pagination.PageSize;
+            //int pageIndex = pagination.IndexPage;
+            //int pageSize = pagination.PageSize;
 
             var data = _contex.Orders.Include(x => x.Customer).OrderBy(x => x.Id);
             var page = new PaginationResponse<Order>(data, pageIndex, pageSize);
@@ -83,14 +85,32 @@ namespace Advantage.API.Controllers
         public IActionResult ByCustomer()
         {
             var orders = _contex.Orders.Include(o => o.Customer).ToList();
-
             var groupedResults = orders.GroupBy(x => x.Customer.Id)
                 .ToList()
                 .Select(grep => new {
                     CustomerId = grep.Key,
                     Customer = _contex.Customers.Find(grep.Key),
                     Total = grep.Sum(x => x.Amount)
-                }).OrderByDescending(res => res.Total)
+                })
+                .OrderByDescending(res => res.Total)
+                .ToList();
+
+            return Ok(groupedResults);
+        }
+
+        [HttpGet("ByCustomer/{take}")]
+        public IActionResult ByCustomer(int take)
+        {
+            var orders = _contex.Orders.Include(o => o.Customer).ToList();
+            var groupedResults = orders.GroupBy(x => x.Customer.Id)
+                .ToList()
+                .Select(grep => new {
+                    CustomerId = grep.Key,
+                    Customer = _contex.Customers.Find(grep.Key),
+                    Total = grep.Sum(x => x.Amount)
+                })
+                .Take(take)
+                .OrderByDescending(res => res.Total)
                 .ToList();
 
             return Ok(groupedResults);
