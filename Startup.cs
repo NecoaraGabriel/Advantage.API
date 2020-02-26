@@ -25,6 +25,12 @@ namespace Advantage.API
         public void ConfigureServices(IServiceCollection services)
         {
             _connectionString = Configuration["psqlConnectionString"];
+            services.AddCors(opt => {
+                opt.AddPolicy("CorsPolicy",
+                    c => c.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod());
+            });
             services.AddControllers();
             services.AddMvc();
             services.AddEntityFrameworkNpgsql().AddDbContext<ModelsDbContex>(
@@ -44,6 +50,7 @@ namespace Advantage.API
             if (env.IsDevelopment())
             { 
                 app.UseDeveloperExceptionPage();
+                app.UseCors("CorsPolicy");
             }
 
             app.UseHttpsRedirection();
