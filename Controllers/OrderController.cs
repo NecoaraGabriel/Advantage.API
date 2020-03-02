@@ -25,7 +25,7 @@ namespace Advantage.API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var data = _contex.Orders.Include(x => x.Customer).OrderBy(o => o.Id);
+            var data = _contex.Orders.Include(x => x.Customer).OrderBy(o => o.Placed);
 
             return Ok(data);
         }
@@ -88,7 +88,6 @@ namespace Advantage.API.Controllers
             var groupedResults = orders.GroupBy(x => x.Customer.Id)
                 .ToList()
                 .Select(grep => new {
-                    CustomerId = grep.Key,
                     Customer = _contex.Customers.Find(grep.Key),
                     Total = grep.Sum(x => x.Amount)
                 })
@@ -105,12 +104,11 @@ namespace Advantage.API.Controllers
             var groupedResults = orders.GroupBy(x => x.Customer.Id)
                 .ToList()
                 .Select(grep => new {
-                    CustomerId = grep.Key,
                     Customer = _contex.Customers.Find(grep.Key),
                     Total = grep.Sum(x => x.Amount)
                 })
-                .Take(take)
                 .OrderByDescending(res => res.Total)
+                .Take(take)
                 .ToList();
 
             return Ok(groupedResults);

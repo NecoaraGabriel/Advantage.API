@@ -70,7 +70,7 @@ namespace Advantage.API
             Random rnd = new Random();
             int maxDays = 30;//use  larger interval
             DateTime placed = DateTime.Now.AddDays(-rnd.Next(maxDays));
-            DateTime fulfilled = placed.AddDays(rnd.Next(7));
+            DateTime fulfilled = placed.AddDays(rnd.Next(1,7));
             var longFulfilled = DateTime.Now.Date < fulfilled.Date ? 0 : Utils.ToEpoch(fulfilled);
 
             return new Order
