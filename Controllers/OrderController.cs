@@ -113,5 +113,14 @@ namespace Advantage.API.Controllers
 
             return Ok(groupedResults);
         }
+
+        [HttpGet("ByDate/{startDt:long}/{endDt:long}")]
+        public IActionResult ByDate(long startDt, long endDt)
+        {
+            var orders = _contex.Orders.Include(o => o.Customer)
+                .Where(x => x.Placed >= startDt && x.Fulfilled < endDt)
+                .ToList();
+            return Ok(orders);
+        }
     }
 }
