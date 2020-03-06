@@ -57,7 +57,7 @@ namespace Advantage.API
             app.UseRouting();
             app.UseAuthorization();
 
-            seed.SeedData(22, 53);
+            seed.SeedData(30, 100);
 
             app.UseEndpoints(endpoints =>
             {

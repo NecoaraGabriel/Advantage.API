@@ -65,11 +65,11 @@ namespace Advantage.API
             return $"{Name}@{emailDomains.ElementAt(rnd.Next(emailDomains.Count))}";
         }
 
-        public static Order GenerateOrder(int id, Customer customer)
+        public static Order GenerateOrder(int id, Customer customer, DateTime startDt)
         {
             Random rnd = new Random();
-            int maxDays = 30;//use  larger interval
-            DateTime placed = DateTime.Now.AddDays(-rnd.Next(maxDays));
+            var maxDays = DateTime.Now - startDt;//use  larger interval
+            DateTime placed = startDt.AddDays(rnd.Next(1,maxDays.Days));
             DateTime fulfilled = placed.AddDays(rnd.Next(1,7));
             var longFulfilled = DateTime.Now.Date < fulfilled.Date ? 0 : Utils.ToEpoch(fulfilled);
 

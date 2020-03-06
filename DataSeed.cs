@@ -111,7 +111,7 @@ namespace Advantage.API
                 index = rnd.Next(1, n+1);
                 var customer = _contex.Customers.ToList().First(x => x.Id == index);
 
-                var order = Generator.GenerateOrder(i, customer);
+                var order = Generator.GenerateOrder(i, customer, DateTime.Now.AddDays(-50));
                 _contex.Orders.Add(order);
 
             }
