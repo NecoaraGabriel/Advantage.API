@@ -119,6 +119,7 @@ namespace Advantage.API.Controllers
         {
             var orders = _contex.Orders.Include(o => o.Customer)
                 .Where(x => x.Placed >= startDt && x.Fulfilled < endDt)
+                .OrderByDescending(x => x.Placed)
                 .ToList();
             return Ok(orders);
         }

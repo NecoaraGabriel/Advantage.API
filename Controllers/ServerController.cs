@@ -42,7 +42,17 @@ namespace Advantage.API.Controllers
         //[HttpPut]
         public IActionResult Put([FromBody] ServerMessage serverMessage)
         {
-            if (serverMessage.Id == 0) return BadRequest();
+            //try
+            //{
+               
+            //}
+            //catch
+            //{
+            //    return BadRequest();
+            //}
+
+            if (serverMessage?.Id == 0)
+                return BadRequest();
             var server = _contex.Servers.Find(serverMessage.Id);
             if (server == null)
             {
@@ -52,11 +62,13 @@ namespace Advantage.API.Controllers
             if(serverMessage.Message == "activate")
             {
                 server.IsOnline = true;
+                server.Status = "Online";
                 _contex.SaveChanges();
             }
             else if(serverMessage.Message == "deactivate")
             {
                 server.IsOnline = false;
+                server.Status = "Offline";
                 _contex.SaveChanges();
             }
 

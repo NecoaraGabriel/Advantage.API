@@ -54,37 +54,43 @@ namespace Advantage.API
                 {
                     Id = 1,
                     Name = "Dev-Web",
-                    IsOnline = true
+                    IsOnline = true,
+                    Status = "Online"
                 },
                 new Server
                 {
                     Id = 2,
                     Name = "Dev-Mail",
-                    IsOnline = false
+                    IsOnline = false,
+                    Status = "Offline"
                 },
                 new Server
                 {
                     Id = 3,
                     Name = "Dev-Service",
-                    IsOnline = true
+                    IsOnline = true,
+                    Status = "Online"
                 },
                 new Server
                 {
                     Id = 4,
                     Name = "Prod-Web",
-                    IsOnline = true
+                    IsOnline = true,
+                    Status = "Online"
                 },
                 new Server
                 {
                     Id = 5,
                     Name = "Prod-Mail",
-                    IsOnline = false
+                    IsOnline = false,
+                    Status = "Offline"
                 },
                 new Server
                 {
                     Id = 6,
                     Name = "Prod-Service",
-                    IsOnline = true
+                    IsOnline = true,
+                    Status = "Online"
                 }
             };
         }
