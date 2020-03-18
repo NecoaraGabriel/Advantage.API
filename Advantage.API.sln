@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.902
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Advantage.API", "Advantage.API.csproj", "{74C98AA0-071D-4502-8883-AFA0CEEBC2EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdvantageData", "AdvantageData\AdvantageData.csproj", "{60D05738-B3BF-4453-A1A6-36C65A6BE639}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Advantage.API", "Advantage.API\Advantage.API.csproj", "{0E0AC206-D4A1-44E5-9A46-619796DD810E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{74C98AA0-071D-4502-8883-AFA0CEEBC2EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{74C98AA0-071D-4502-8883-AFA0CEEBC2EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{74C98AA0-071D-4502-8883-AFA0CEEBC2EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{74C98AA0-071D-4502-8883-AFA0CEEBC2EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60D05738-B3BF-4453-A1A6-36C65A6BE639}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60D05738-B3BF-4453-A1A6-36C65A6BE639}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60D05738-B3BF-4453-A1A6-36C65A6BE639}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60D05738-B3BF-4453-A1A6-36C65A6BE639}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E0AC206-D4A1-44E5-9A46-619796DD810E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E0AC206-D4A1-44E5-9A46-619796DD810E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E0AC206-D4A1-44E5-9A46-619796DD810E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E0AC206-D4A1-44E5-9A46-619796DD810E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
